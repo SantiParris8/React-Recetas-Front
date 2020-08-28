@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import Recipe from './Recipe'
 import './App.css';
+import { recipeIdGenerator } from './helpers/recipes';
 
 const App = () => {
   const APP_ID = "9d6efabe";
@@ -8,7 +9,9 @@ const App = () => {
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState('chicken');
+  const [query, setQuery] = useState('Empanadas');
+
+
 
   useEffect(() =>{
    getRecipes();
@@ -35,18 +38,20 @@ const App = () => {
   }
 
   return(
-    <div className="App">
+    <div className="app">
       <form onSubmit={getSearch} className="search-form">
         <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
         <button className="search-button" type="submit"> UWU </button>                                                                      
       </form>
-      <div>
-        {recipes.map(recipe =>(
+      <div className="recipes-container">
+        {recipes.map((recipe, idx) =>(
           <Recipe
-          key={recipe.recipe.label}
+          key={"recipe-" + idx}
           title={recipe.recipe.label}
           image={recipe.recipe.image}
           ingredients={recipe.recipe.ingredients}
+          id={recipeIdGenerator(recipe.recipe)}  
+          
           />
         ))}
       </div>
