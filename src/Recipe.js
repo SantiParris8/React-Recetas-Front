@@ -9,6 +9,7 @@ var contador = 0
 
 const Recipe = ({title, id, image, ingredients, }) => {
     const [likes,setLikes] = useState(null);
+    const [detail, setDetail] = useState(false)
     useEffect(()=> {
         uwu()
     },[])
@@ -30,12 +31,11 @@ const Recipe = ({title, id, image, ingredients, }) => {
 
     }
     return(
-        <div className="recipes">
+        <div className="recipes" onClick={()=>setDetail(!detail)} >
             <h1>{title }</h1>
             <img src={image} alt={title + " image"}/>
-            <ol className="lista">
-                {ingredients.map(ingredients => (
-                    <li>{ingredients.text}</li>))}
+            <ol className="lista" style={{ display: detail ? "block" : "none"}}>
+            {ingredients.map(ingredient => (<li>{ingredient.text}</li>))}
             </ol>
                 <div className="uwuclase">
                     <a className="s1" onClick={()=>lafuncion(5)}>★</a>
