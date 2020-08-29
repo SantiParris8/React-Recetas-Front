@@ -3,6 +3,8 @@ import './App.css';
 import './helpers/recipes'
 import { useEffect,useState } from "react";
 
+
+
 var contador = 0
 
 const Recipe = ({title, id, image, ingredients, }) => {
@@ -20,7 +22,9 @@ const Recipe = ({title, id, image, ingredients, }) => {
         fetch(`http://localhost:4000/recipe/${id}/like/${value}`)
 
         if (contador ===0) {
-            setLikes((likes + value)/2);
+            setLikes(((likes + value)/2).toFixed([1]));
+            
+
             
         }
 
@@ -29,10 +33,9 @@ const Recipe = ({title, id, image, ingredients, }) => {
         <div className="recipes">
             <h1>{title }</h1>
             <img src={image} alt={title + " image"}/>
-            <ol>
+            <ol className="lista">
                 {ingredients.map(ingredients => (
-                    <li>{ingredients.text}</li>
-                ))}
+                    <li>{ingredients.text}</li>))}
             </ol>
                 <div className="uwuclase">
                     <a className="s1" onClick={()=>lafuncion(5)}>★</a>
@@ -40,7 +43,7 @@ const Recipe = ({title, id, image, ingredients, }) => {
                     <a className="s3" onClick={()=>lafuncion(3)}>★</a>
                     <a className="s4" onClick={()=>lafuncion(2)}>★</a>
                     <a className="s5" onClick={()=>lafuncion(1)}>★</a>
-                    <a>{(likes)}</a>
+                    <a>{likes}</a>
                 </div>
         </div>
     );

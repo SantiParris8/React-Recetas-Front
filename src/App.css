@@ -1,6 +1,6 @@
 .app {
   height: auto;
-  background: pink;
+  background: black;
 }
 
 .search-form{
@@ -18,7 +18,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  background: pink;
+  background: white;
   flex-direction: row;
   align-items: center;
 }
@@ -40,6 +40,9 @@
 
 }
 
+.recipes:hover{
+  background-color: hsla(199, 100%, 46%, 0.109);
+}
 .recipes{
 
   display: flex;
@@ -57,9 +60,19 @@
   border-radius: 5px; /* 5px rounded corners */
 }
 
+.lista {
+  list-style-type:none;
+  display: none;
+
+}
+
+.lista li {
+  padding-top: 3px;
+}
+
 .uwuclase a{
   font-family: serif;
-  color: #313131;
+  
   font-weight: bold;
   font-size: 28px;
   user-select: none;
@@ -79,6 +92,7 @@
   direction: rtl;
 
 }
+
 
 .s1:hover ~ a{
   color: #f1c40f;
