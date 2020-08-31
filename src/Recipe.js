@@ -31,9 +31,9 @@ const Recipe = ({title, id, image, ingredients, }) => {
 
     }
     return(
-        <div className="recipes" onClick={()=>setDetail(!detail)} >
+        <div className="recipes">
             <h1>{title }</h1>
-            <img src={image} alt={title + " image"}/>
+            <img src={image} alt={title + " image"}  onClick={()=>setDetail(!detail)} />
             <ol className="lista" style={{ display: detail ? "block" : "none"}}>
             {ingredients.map(ingredient => (<li>{ingredient.text}</li>))}
             </ol>
