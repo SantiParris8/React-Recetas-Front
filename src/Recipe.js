@@ -23,7 +23,8 @@ const Recipe = ({title, id, image, ingredients, }) => {
         fetch(`http://localhost:4000/recipe/${id}/like/${value}`)
 
         if (contador ===0) {
-            setLikes(((likes + value)/2).toFixed([1]));
+            setLikes(((parseInt(likes) + value)/2).toFixed([1]));
+
             
 
             
